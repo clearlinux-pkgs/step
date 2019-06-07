@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : step
-Version  : 19.04.1
-Release  : 6
-URL      : https://download.kde.org/stable/applications/19.04.1/src/step-19.04.1.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.1/src/step-19.04.1.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.1/src/step-19.04.1.tar.xz.sig
+Version  : 19.04.2
+Release  : 7
+URL      : https://download.kde.org/stable/applications/19.04.2/src/step-19.04.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.2/src/step-19.04.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.2/src/step-19.04.2.tar.xz.sig
 Summary  : Interactive Physical Simulator
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0
@@ -81,14 +81,14 @@ locales components for the step package.
 
 
 %prep
-%setup -q -n step-19.04.1
+%setup -q -n step-19.04.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557467579
+export SOURCE_DATE_EPOCH=1559896724
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -103,7 +103,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557467579
+export SOURCE_DATE_EPOCH=1559896724
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/step
 cp COPYING %{buildroot}/usr/share/package-licenses/step/COPYING
