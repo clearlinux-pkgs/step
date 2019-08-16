@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : step
-Version  : 19.04.3
-Release  : 8
-URL      : https://download.kde.org/stable/applications/19.04.3/src/step-19.04.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.3/src/step-19.04.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.3/src/step-19.04.3.tar.xz.sig
+Version  : 19.08.0
+Release  : 9
+URL      : https://download.kde.org/stable/applications/19.08.0/src/step-19.08.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.0/src/step-19.08.0.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.0/src/step-19.08.0.tar.xz.sig
 Summary  : Interactive Physical Simulator
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0
@@ -81,16 +81,17 @@ locales components for the step package.
 
 
 %prep
-%setup -q -n step-19.04.3
+%setup -q -n step-19.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1562895869
+export SOURCE_DATE_EPOCH=1565921091
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -104,7 +105,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1562895869
+export SOURCE_DATE_EPOCH=1565921091
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/step
 cp COPYING %{buildroot}/usr/share/package-licenses/step/COPYING
@@ -181,6 +182,7 @@ popd
 /usr/share/locale/km/LC_MESSAGES/step_qt.qm
 /usr/share/locale/lt/LC_MESSAGES/step_qt.qm
 /usr/share/locale/lv/LC_MESSAGES/step_qt.qm
+/usr/share/locale/ml/LC_MESSAGES/step_qt.qm
 /usr/share/locale/mr/LC_MESSAGES/step_qt.qm
 /usr/share/locale/nb/LC_MESSAGES/step_qt.qm
 /usr/share/locale/nds/LC_MESSAGES/step_qt.qm
