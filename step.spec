@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : step
-Version  : 19.08.0
-Release  : 9
-URL      : https://download.kde.org/stable/applications/19.08.0/src/step-19.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.08.0/src/step-19.08.0.tar.xz
-Source1 : https://download.kde.org/stable/applications/19.08.0/src/step-19.08.0.tar.xz.sig
+Version  : 19.08.1
+Release  : 10
+URL      : https://download.kde.org/stable/applications/19.08.1/src/step-19.08.1.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.1/src/step-19.08.1.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.1/src/step-19.08.1.tar.xz.sig
 Summary  : Interactive Physical Simulator
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0
@@ -20,6 +20,7 @@ Requires: step-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : eigen-dev
+BuildRequires : extra-cmake-modules shared-mime-info
 BuildRequires : gmp-dev
 BuildRequires : gsl-dev
 BuildRequires : khtml-dev
@@ -81,14 +82,14 @@ locales components for the step package.
 
 
 %prep
-%setup -q -n step-19.08.0
+%setup -q -n step-19.08.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1565921091
+export SOURCE_DATE_EPOCH=1567722953
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -105,7 +106,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1565921091
+export SOURCE_DATE_EPOCH=1567722953
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/step
 cp COPYING %{buildroot}/usr/share/package-licenses/step/COPYING
@@ -204,6 +205,7 @@ popd
 /usr/share/locale/zh_CN/LC_MESSAGES/step_qt.qm
 /usr/share/locale/zh_TW/LC_MESSAGES/step_qt.qm
 /usr/share/metainfo/org.kde.step.appdata.xml
+/usr/share/mime-packages/org.kde.step.xml
 /usr/share/step/examples/brownian.step
 /usr/share/step/examples/doublependulum.step
 /usr/share/step/examples/eightpendula.step
