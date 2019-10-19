@@ -6,11 +6,11 @@
 #
 Name     : step
 Version  : 19.08.2
-Release  : 11
+Release  : 12
 URL      : https://download.kde.org/stable/applications/19.08.2/src/step-19.08.2.tar.xz
 Source0  : https://download.kde.org/stable/applications/19.08.2/src/step-19.08.2.tar.xz
 Source1 : https://download.kde.org/stable/applications/19.08.2/src/step-19.08.2.tar.xz.sig
-Summary  : Interactive Physical Simulator
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0
 Requires: step-bin = %{version}-%{release}
@@ -89,10 +89,9 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1570785584
+export SOURCE_DATE_EPOCH=1571462176
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -106,12 +105,12 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1570785584
+export SOURCE_DATE_EPOCH=1571462176
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/step
-cp COPYING %{buildroot}/usr/share/package-licenses/step/COPYING
-cp COPYING.DOC %{buildroot}/usr/share/package-licenses/step/COPYING.DOC
-cp cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/step/cmake_modules_COPYING-CMAKE-SCRIPTS
+cp %{_builddir}/step-19.08.2/COPYING %{buildroot}/usr/share/package-licenses/step/40f6a79e31db3f532867ecebb7186eef8a34ff76
+cp %{_builddir}/step-19.08.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/step/0c4be15f5177aafffe980ca09c0f4ca6ed741f43
+cp %{_builddir}/step-19.08.2/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/step/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
@@ -368,9 +367,9 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/step/COPYING
-/usr/share/package-licenses/step/COPYING.DOC
-/usr/share/package-licenses/step/cmake_modules_COPYING-CMAKE-SCRIPTS
+/usr/share/package-licenses/step/0c4be15f5177aafffe980ca09c0f4ca6ed741f43
+/usr/share/package-licenses/step/40f6a79e31db3f532867ecebb7186eef8a34ff76
+/usr/share/package-licenses/step/ff3ed70db4739b3c6747c7f624fe2bad70802987
 
 %files locales -f step.lang
 %defattr(-,root,root,-)
