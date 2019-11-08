@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : step
-Version  : 19.08.2
-Release  : 12
-URL      : https://download.kde.org/stable/applications/19.08.2/src/step-19.08.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.08.2/src/step-19.08.2.tar.xz
-Source1 : https://download.kde.org/stable/applications/19.08.2/src/step-19.08.2.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 19.08.3
+Release  : 13
+URL      : https://download.kde.org/stable/applications/19.08.3/src/step-19.08.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.3/src/step-19.08.3.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.3/src/step-19.08.3.tar.xz.sig
+Summary  : Interactive Physical Simulator
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0
 Requires: step-bin = %{version}-%{release}
@@ -82,16 +82,17 @@ locales components for the step package.
 
 
 %prep
-%setup -q -n step-19.08.2
+%setup -q -n step-19.08.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571462176
+export SOURCE_DATE_EPOCH=1573199231
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -105,12 +106,12 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1571462176
+export SOURCE_DATE_EPOCH=1573199231
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/step
-cp %{_builddir}/step-19.08.2/COPYING %{buildroot}/usr/share/package-licenses/step/40f6a79e31db3f532867ecebb7186eef8a34ff76
-cp %{_builddir}/step-19.08.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/step/0c4be15f5177aafffe980ca09c0f4ca6ed741f43
-cp %{_builddir}/step-19.08.2/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/step/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/step-19.08.3/COPYING %{buildroot}/usr/share/package-licenses/step/40f6a79e31db3f532867ecebb7186eef8a34ff76
+cp %{_builddir}/step-19.08.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/step/0c4be15f5177aafffe980ca09c0f4ca6ed741f43
+cp %{_builddir}/step-19.08.3/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/step/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
