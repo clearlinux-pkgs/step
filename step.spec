@@ -6,7 +6,7 @@
 #
 Name     : step
 Version  : 19.08.3
-Release  : 13
+Release  : 14
 URL      : https://download.kde.org/stable/applications/19.08.3/src/step-19.08.3.tar.xz
 Source0  : https://download.kde.org/stable/applications/19.08.3/src/step-19.08.3.tar.xz
 Source1 : https://download.kde.org/stable/applications/19.08.3/src/step-19.08.3.tar.xz.sig
