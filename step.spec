@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : step
-Version  : 19.12.0
-Release  : 15
-URL      : https://download.kde.org/stable/release-service/19.12.0/src/step-19.12.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/19.12.0/src/step-19.12.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/19.12.0/src/step-19.12.0.tar.xz.sig
+Version  : 19.12.1
+Release  : 16
+URL      : https://download.kde.org/stable/release-service/19.12.1/src/step-19.12.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/19.12.1/src/step-19.12.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/19.12.1/src/step-19.12.1.tar.xz.sig
 Summary  : Interactive Physical Simulator
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0
@@ -80,15 +80,15 @@ locales components for the step package.
 
 
 %prep
-%setup -q -n step-19.12.0
-cd %{_builddir}/step-19.12.0
+%setup -q -n step-19.12.1
+cd %{_builddir}/step-19.12.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576536369
+export SOURCE_DATE_EPOCH=1578697554
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -105,12 +105,12 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1576536369
+export SOURCE_DATE_EPOCH=1578697554
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/step
-cp %{_builddir}/step-19.12.0/COPYING %{buildroot}/usr/share/package-licenses/step/40f6a79e31db3f532867ecebb7186eef8a34ff76
-cp %{_builddir}/step-19.12.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/step/0c4be15f5177aafffe980ca09c0f4ca6ed741f43
-cp %{_builddir}/step-19.12.0/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/step/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/step-19.12.1/COPYING %{buildroot}/usr/share/package-licenses/step/40f6a79e31db3f532867ecebb7186eef8a34ff76
+cp %{_builddir}/step-19.12.1/COPYING.DOC %{buildroot}/usr/share/package-licenses/step/0c4be15f5177aafffe980ca09c0f4ca6ed741f43
+cp %{_builddir}/step-19.12.1/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/step/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
@@ -282,6 +282,23 @@ popd
 /usr/share/step/examples/fr/wave.step
 /usr/share/step/examples/gas.step
 /usr/share/step/examples/graph.step
+/usr/share/step/examples/it/brownian.step
+/usr/share/step/examples/it/doublependulum.step
+/usr/share/step/examples/it/eightpendula.step
+/usr/share/step/examples/it/first.step
+/usr/share/step/examples/it/fourpendula.step
+/usr/share/step/examples/it/gas.step
+/usr/share/step/examples/it/graph.step
+/usr/share/step/examples/it/liquid.step
+/usr/share/step/examples/it/lissajous.step
+/usr/share/step/examples/it/motor.step
+/usr/share/step/examples/it/motor1.step
+/usr/share/step/examples/it/note.step
+/usr/share/step/examples/it/resonance.step
+/usr/share/step/examples/it/softbody.step
+/usr/share/step/examples/it/solar.step
+/usr/share/step/examples/it/springs.step
+/usr/share/step/examples/it/wave.step
 /usr/share/step/examples/liquid.step
 /usr/share/step/examples/lissajous.step
 /usr/share/step/examples/motor.step
@@ -376,6 +393,23 @@ popd
 /usr/share/step/examples/softbody.step
 /usr/share/step/examples/solar.step
 /usr/share/step/examples/springs.step
+/usr/share/step/examples/sv/brownian.step
+/usr/share/step/examples/sv/doublependulum.step
+/usr/share/step/examples/sv/eightpendula.step
+/usr/share/step/examples/sv/first.step
+/usr/share/step/examples/sv/fourpendula.step
+/usr/share/step/examples/sv/gas.step
+/usr/share/step/examples/sv/graph.step
+/usr/share/step/examples/sv/liquid.step
+/usr/share/step/examples/sv/lissajous.step
+/usr/share/step/examples/sv/motor.step
+/usr/share/step/examples/sv/motor1.step
+/usr/share/step/examples/sv/note.step
+/usr/share/step/examples/sv/resonance.step
+/usr/share/step/examples/sv/softbody.step
+/usr/share/step/examples/sv/solar.step
+/usr/share/step/examples/sv/springs.step
+/usr/share/step/examples/sv/wave.step
 /usr/share/step/examples/uk/brownian.step
 /usr/share/step/examples/uk/doublependulum.step
 /usr/share/step/examples/uk/eightpendula.step
@@ -394,6 +428,23 @@ popd
 /usr/share/step/examples/uk/springs.step
 /usr/share/step/examples/uk/wave.step
 /usr/share/step/examples/wave.step
+/usr/share/step/examples/zh_CN/brownian.step
+/usr/share/step/examples/zh_CN/doublependulum.step
+/usr/share/step/examples/zh_CN/eightpendula.step
+/usr/share/step/examples/zh_CN/first.step
+/usr/share/step/examples/zh_CN/fourpendula.step
+/usr/share/step/examples/zh_CN/gas.step
+/usr/share/step/examples/zh_CN/graph.step
+/usr/share/step/examples/zh_CN/liquid.step
+/usr/share/step/examples/zh_CN/lissajous.step
+/usr/share/step/examples/zh_CN/motor.step
+/usr/share/step/examples/zh_CN/motor1.step
+/usr/share/step/examples/zh_CN/note.step
+/usr/share/step/examples/zh_CN/resonance.step
+/usr/share/step/examples/zh_CN/softbody.step
+/usr/share/step/examples/zh_CN/solar.step
+/usr/share/step/examples/zh_CN/springs.step
+/usr/share/step/examples/zh_CN/wave.step
 /usr/share/step/examples/zh_TW/brownian.step
 /usr/share/step/examples/zh_TW/doublependulum.step
 /usr/share/step/examples/zh_TW/eightpendula.step
@@ -639,6 +690,25 @@ popd
 /usr/share/step/objinfo/l10n/sk/spring.html
 /usr/share/step/objinfo/l10n/sk/weightforce.html
 /usr/share/step/objinfo/l10n/sk/world.html
+/usr/share/step/objinfo/l10n/sv/anchor.html
+/usr/share/step/objinfo/l10n/sv/box.html
+/usr/share/step/objinfo/l10n/sv/chargedparticle.html
+/usr/share/step/objinfo/l10n/sv/coulombforce.html
+/usr/share/step/objinfo/l10n/sv/disk.html
+/usr/share/step/objinfo/l10n/sv/gas.html
+/usr/share/step/objinfo/l10n/sv/gasljforce.html
+/usr/share/step/objinfo/l10n/sv/gasparticle.html
+/usr/share/step/objinfo/l10n/sv/gravitationforce.html
+/usr/share/step/objinfo/l10n/sv/linearmotor.html
+/usr/share/step/objinfo/l10n/sv/meter.html
+/usr/share/step/objinfo/l10n/sv/note.html
+/usr/share/step/objinfo/l10n/sv/particle.html
+/usr/share/step/objinfo/l10n/sv/pin.html
+/usr/share/step/objinfo/l10n/sv/polygon.html
+/usr/share/step/objinfo/l10n/sv/softbody.html
+/usr/share/step/objinfo/l10n/sv/spring.html
+/usr/share/step/objinfo/l10n/sv/weightforce.html
+/usr/share/step/objinfo/l10n/sv/world.html
 /usr/share/step/objinfo/l10n/uk/anchor.html
 /usr/share/step/objinfo/l10n/uk/box.html
 /usr/share/step/objinfo/l10n/uk/chargedparticle.html
@@ -658,6 +728,25 @@ popd
 /usr/share/step/objinfo/l10n/uk/spring.html
 /usr/share/step/objinfo/l10n/uk/weightforce.html
 /usr/share/step/objinfo/l10n/uk/world.html
+/usr/share/step/objinfo/l10n/zh_CN/anchor.html
+/usr/share/step/objinfo/l10n/zh_CN/box.html
+/usr/share/step/objinfo/l10n/zh_CN/chargedparticle.html
+/usr/share/step/objinfo/l10n/zh_CN/coulombforce.html
+/usr/share/step/objinfo/l10n/zh_CN/disk.html
+/usr/share/step/objinfo/l10n/zh_CN/gas.html
+/usr/share/step/objinfo/l10n/zh_CN/gasljforce.html
+/usr/share/step/objinfo/l10n/zh_CN/gasparticle.html
+/usr/share/step/objinfo/l10n/zh_CN/gravitationforce.html
+/usr/share/step/objinfo/l10n/zh_CN/linearmotor.html
+/usr/share/step/objinfo/l10n/zh_CN/meter.html
+/usr/share/step/objinfo/l10n/zh_CN/note.html
+/usr/share/step/objinfo/l10n/zh_CN/particle.html
+/usr/share/step/objinfo/l10n/zh_CN/pin.html
+/usr/share/step/objinfo/l10n/zh_CN/polygon.html
+/usr/share/step/objinfo/l10n/zh_CN/softbody.html
+/usr/share/step/objinfo/l10n/zh_CN/spring.html
+/usr/share/step/objinfo/l10n/zh_CN/weightforce.html
+/usr/share/step/objinfo/l10n/zh_CN/world.html
 /usr/share/step/objinfo/l10n/zh_TW/anchor.html
 /usr/share/step/objinfo/l10n/zh_TW/box.html
 /usr/share/step/objinfo/l10n/zh_TW/chargedparticle.html
@@ -707,6 +796,11 @@ popd
 /usr/share/step/tutorials/fr/tutorial3.step
 /usr/share/step/tutorials/fr/tutorial4.step
 /usr/share/step/tutorials/fr/tutorial5.step
+/usr/share/step/tutorials/it/tutorial1.step
+/usr/share/step/tutorials/it/tutorial2.step
+/usr/share/step/tutorials/it/tutorial3.step
+/usr/share/step/tutorials/it/tutorial4.step
+/usr/share/step/tutorials/it/tutorial5.step
 /usr/share/step/tutorials/nl/tutorial1.step
 /usr/share/step/tutorials/nl/tutorial2.step
 /usr/share/step/tutorials/nl/tutorial3.step
@@ -732,6 +826,11 @@ popd
 /usr/share/step/tutorials/sk/tutorial3.step
 /usr/share/step/tutorials/sk/tutorial4.step
 /usr/share/step/tutorials/sk/tutorial5.step
+/usr/share/step/tutorials/sv/tutorial1.step
+/usr/share/step/tutorials/sv/tutorial2.step
+/usr/share/step/tutorials/sv/tutorial3.step
+/usr/share/step/tutorials/sv/tutorial4.step
+/usr/share/step/tutorials/sv/tutorial5.step
 /usr/share/step/tutorials/tutorial1.step
 /usr/share/step/tutorials/tutorial2.step
 /usr/share/step/tutorials/tutorial3.step
@@ -742,6 +841,11 @@ popd
 /usr/share/step/tutorials/uk/tutorial3.step
 /usr/share/step/tutorials/uk/tutorial4.step
 /usr/share/step/tutorials/uk/tutorial5.step
+/usr/share/step/tutorials/zh_CN/tutorial1.step
+/usr/share/step/tutorials/zh_CN/tutorial2.step
+/usr/share/step/tutorials/zh_CN/tutorial3.step
+/usr/share/step/tutorials/zh_CN/tutorial4.step
+/usr/share/step/tutorials/zh_CN/tutorial5.step
 /usr/share/step/tutorials/zh_TW/tutorial1.step
 /usr/share/step/tutorials/zh_TW/tutorial2.step
 /usr/share/step/tutorials/zh_TW/tutorial3.step
