@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : step
-Version  : 20.04.0
-Release  : 19
-URL      : https://download.kde.org/stable/release-service/20.04.0/src/step-20.04.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.0/src/step-20.04.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.0/src/step-20.04.0.tar.xz.sig
-Summary  : Interactive Physical Simulator
+Version  : 20.04.1
+Release  : 20
+URL      : https://download.kde.org/stable/release-service/20.04.1/src/step-20.04.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.04.1/src/step-20.04.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.04.1/src/step-20.04.1.tar.xz.sig
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0
 Requires: step-bin = %{version}-%{release}
@@ -19,16 +19,20 @@ Requires: step-license = %{version}-%{release}
 Requires: step-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : eigen-data
 BuildRequires : eigen-dev
 BuildRequires : extra-cmake-modules shared-mime-info
+BuildRequires : extra-cmake-modules-data
 BuildRequires : gmp-dev
 BuildRequires : gsl-dev
+BuildRequires : kdoctools-dev
 BuildRequires : kplotting-dev
 BuildRequires : mpfr-dev
 BuildRequires : pkgconfig(cln)
 BuildRequires : pkgconfig(gsl)
 BuildRequires : pkgconfig(libqalculate)
 BuildRequires : python3
+BuildRequires : qtbase-dev
 BuildRequires : qtbase-dev mesa-dev
 
 %description
@@ -80,37 +84,36 @@ locales components for the step package.
 
 
 %prep
-%setup -q -n step-20.04.0
-cd %{_builddir}/step-20.04.0
+%setup -q -n step-20.04.1
+cd %{_builddir}/step-20.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1587674508
+export SOURCE_DATE_EPOCH=1589854987
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
 make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1587674508
+export SOURCE_DATE_EPOCH=1589854987
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/step
-cp %{_builddir}/step-20.04.0/COPYING %{buildroot}/usr/share/package-licenses/step/40f6a79e31db3f532867ecebb7186eef8a34ff76
-cp %{_builddir}/step-20.04.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/step/0c4be15f5177aafffe980ca09c0f4ca6ed741f43
-cp %{_builddir}/step-20.04.0/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/step/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/step-20.04.1/COPYING %{buildroot}/usr/share/package-licenses/step/40f6a79e31db3f532867ecebb7186eef8a34ff76
+cp %{_builddir}/step-20.04.1/COPYING.DOC %{buildroot}/usr/share/package-licenses/step/0c4be15f5177aafffe980ca09c0f4ca6ed741f43
+cp %{_builddir}/step-20.04.1/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/step/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
@@ -350,6 +353,23 @@ popd
 /usr/share/step/examples/it/solar.step
 /usr/share/step/examples/it/springs.step
 /usr/share/step/examples/it/wave.step
+/usr/share/step/examples/ja/brownian.step
+/usr/share/step/examples/ja/doublependulum.step
+/usr/share/step/examples/ja/eightpendula.step
+/usr/share/step/examples/ja/first.step
+/usr/share/step/examples/ja/fourpendula.step
+/usr/share/step/examples/ja/gas.step
+/usr/share/step/examples/ja/graph.step
+/usr/share/step/examples/ja/liquid.step
+/usr/share/step/examples/ja/lissajous.step
+/usr/share/step/examples/ja/motor.step
+/usr/share/step/examples/ja/motor1.step
+/usr/share/step/examples/ja/note.step
+/usr/share/step/examples/ja/resonance.step
+/usr/share/step/examples/ja/softbody.step
+/usr/share/step/examples/ja/solar.step
+/usr/share/step/examples/ja/springs.step
+/usr/share/step/examples/ja/wave.step
 /usr/share/step/examples/liquid.step
 /usr/share/step/examples/lissajous.step
 /usr/share/step/examples/lt/brownian.step
@@ -737,6 +757,25 @@ popd
 /usr/share/step/objinfo/l10n/it/spring.html
 /usr/share/step/objinfo/l10n/it/weightforce.html
 /usr/share/step/objinfo/l10n/it/world.html
+/usr/share/step/objinfo/l10n/ja/anchor.html
+/usr/share/step/objinfo/l10n/ja/box.html
+/usr/share/step/objinfo/l10n/ja/chargedparticle.html
+/usr/share/step/objinfo/l10n/ja/coulombforce.html
+/usr/share/step/objinfo/l10n/ja/disk.html
+/usr/share/step/objinfo/l10n/ja/gas.html
+/usr/share/step/objinfo/l10n/ja/gasljforce.html
+/usr/share/step/objinfo/l10n/ja/gasparticle.html
+/usr/share/step/objinfo/l10n/ja/gravitationforce.html
+/usr/share/step/objinfo/l10n/ja/linearmotor.html
+/usr/share/step/objinfo/l10n/ja/meter.html
+/usr/share/step/objinfo/l10n/ja/note.html
+/usr/share/step/objinfo/l10n/ja/particle.html
+/usr/share/step/objinfo/l10n/ja/pin.html
+/usr/share/step/objinfo/l10n/ja/polygon.html
+/usr/share/step/objinfo/l10n/ja/softbody.html
+/usr/share/step/objinfo/l10n/ja/spring.html
+/usr/share/step/objinfo/l10n/ja/weightforce.html
+/usr/share/step/objinfo/l10n/ja/world.html
 /usr/share/step/objinfo/l10n/lt/anchor.html
 /usr/share/step/objinfo/l10n/lt/box.html
 /usr/share/step/objinfo/l10n/lt/chargedparticle.html
@@ -996,6 +1035,11 @@ popd
 /usr/share/step/tutorials/it/tutorial3.step
 /usr/share/step/tutorials/it/tutorial4.step
 /usr/share/step/tutorials/it/tutorial5.step
+/usr/share/step/tutorials/ja/tutorial1.step
+/usr/share/step/tutorials/ja/tutorial2.step
+/usr/share/step/tutorials/ja/tutorial3.step
+/usr/share/step/tutorials/ja/tutorial4.step
+/usr/share/step/tutorials/ja/tutorial5.step
 /usr/share/step/tutorials/lt/tutorial1.step
 /usr/share/step/tutorials/lt/tutorial2.step
 /usr/share/step/tutorials/lt/tutorial3.step
