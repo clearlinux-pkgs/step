@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : step
-Version  : 20.04.1
-Release  : 20
-URL      : https://download.kde.org/stable/release-service/20.04.1/src/step-20.04.1.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.1/src/step-20.04.1.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.1/src/step-20.04.1.tar.xz.sig
+Version  : 20.04.2
+Release  : 21
+URL      : https://download.kde.org/stable/release-service/20.04.2/src/step-20.04.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.04.2/src/step-20.04.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.04.2/src/step-20.04.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0
@@ -84,15 +84,15 @@ locales components for the step package.
 
 
 %prep
-%setup -q -n step-20.04.1
-cd %{_builddir}/step-20.04.1
+%setup -q -n step-20.04.2
+cd %{_builddir}/step-20.04.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1589854987
+export SOURCE_DATE_EPOCH=1591885830
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -108,12 +108,12 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1589854987
+export SOURCE_DATE_EPOCH=1591885830
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/step
-cp %{_builddir}/step-20.04.1/COPYING %{buildroot}/usr/share/package-licenses/step/40f6a79e31db3f532867ecebb7186eef8a34ff76
-cp %{_builddir}/step-20.04.1/COPYING.DOC %{buildroot}/usr/share/package-licenses/step/0c4be15f5177aafffe980ca09c0f4ca6ed741f43
-cp %{_builddir}/step-20.04.1/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/step/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/step-20.04.2/COPYING %{buildroot}/usr/share/package-licenses/step/40f6a79e31db3f532867ecebb7186eef8a34ff76
+cp %{_builddir}/step-20.04.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/step/0c4be15f5177aafffe980ca09c0f4ca6ed741f43
+cp %{_builddir}/step-20.04.2/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/step/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
@@ -264,6 +264,23 @@ popd
 /usr/share/step/examples/cs/wave.step
 /usr/share/step/examples/doublependulum.step
 /usr/share/step/examples/eightpendula.step
+/usr/share/step/examples/el/brownian.step
+/usr/share/step/examples/el/doublependulum.step
+/usr/share/step/examples/el/eightpendula.step
+/usr/share/step/examples/el/first.step
+/usr/share/step/examples/el/fourpendula.step
+/usr/share/step/examples/el/gas.step
+/usr/share/step/examples/el/graph.step
+/usr/share/step/examples/el/liquid.step
+/usr/share/step/examples/el/lissajous.step
+/usr/share/step/examples/el/motor.step
+/usr/share/step/examples/el/motor1.step
+/usr/share/step/examples/el/note.step
+/usr/share/step/examples/el/resonance.step
+/usr/share/step/examples/el/softbody.step
+/usr/share/step/examples/el/solar.step
+/usr/share/step/examples/el/springs.step
+/usr/share/step/examples/el/wave.step
 /usr/share/step/examples/en_GB/brownian.step
 /usr/share/step/examples/en_GB/doublependulum.step
 /usr/share/step/examples/en_GB/eightpendula.step
@@ -651,6 +668,25 @@ popd
 /usr/share/step/objinfo/l10n/de/Spring.html
 /usr/share/step/objinfo/l10n/de/WeightForce.html
 /usr/share/step/objinfo/l10n/de/World.html
+/usr/share/step/objinfo/l10n/el/anchor.html
+/usr/share/step/objinfo/l10n/el/box.html
+/usr/share/step/objinfo/l10n/el/chargedparticle.html
+/usr/share/step/objinfo/l10n/el/coulombforce.html
+/usr/share/step/objinfo/l10n/el/disk.html
+/usr/share/step/objinfo/l10n/el/gas.html
+/usr/share/step/objinfo/l10n/el/gasljforce.html
+/usr/share/step/objinfo/l10n/el/gasparticle.html
+/usr/share/step/objinfo/l10n/el/gravitationforce.html
+/usr/share/step/objinfo/l10n/el/linearmotor.html
+/usr/share/step/objinfo/l10n/el/meter.html
+/usr/share/step/objinfo/l10n/el/note.html
+/usr/share/step/objinfo/l10n/el/particle.html
+/usr/share/step/objinfo/l10n/el/pin.html
+/usr/share/step/objinfo/l10n/el/polygon.html
+/usr/share/step/objinfo/l10n/el/softbody.html
+/usr/share/step/objinfo/l10n/el/spring.html
+/usr/share/step/objinfo/l10n/el/weightforce.html
+/usr/share/step/objinfo/l10n/el/world.html
 /usr/share/step/objinfo/l10n/en_GB/anchor.html
 /usr/share/step/objinfo/l10n/en_GB/box.html
 /usr/share/step/objinfo/l10n/en_GB/chargedparticle.html
@@ -1010,6 +1046,11 @@ popd
 /usr/share/step/tutorials/cs/tutorial3.step
 /usr/share/step/tutorials/cs/tutorial4.step
 /usr/share/step/tutorials/cs/tutorial5.step
+/usr/share/step/tutorials/el/tutorial1.step
+/usr/share/step/tutorials/el/tutorial2.step
+/usr/share/step/tutorials/el/tutorial3.step
+/usr/share/step/tutorials/el/tutorial4.step
+/usr/share/step/tutorials/el/tutorial5.step
 /usr/share/step/tutorials/en_GB/tutorial1.step
 /usr/share/step/tutorials/en_GB/tutorial2.step
 /usr/share/step/tutorials/en_GB/tutorial3.step
